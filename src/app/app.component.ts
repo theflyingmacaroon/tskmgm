@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
+import { ViewHeaderComponent } from './view-header/view-header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, ViewHeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

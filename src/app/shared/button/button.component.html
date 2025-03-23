@@ -1,7 +1,12 @@
-<button>
+<button [class.icon-right]="iconSide() === 'right'">
     @if (icon()) {
-        <span class="material-icons">{{ icon() }}</span>
+        <!-- TODO: Only svg here -->
+        @if (isSvg()) {
+            <span class="icon-svg" [innerHTML]="icon()"></span>
+        } @else {
+            <span class="material-icons">{{ icon() }}</span>
+        }
     }
-    <span>{{ text() }}</span>
+    <span class="button-text">{{ text() }}</span>
 </button>
 

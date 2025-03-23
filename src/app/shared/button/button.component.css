@@ -21,7 +21,6 @@ button {
   line-height: 1;
   gap: 8px;
   width: 100%;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .material-icons {
@@ -33,10 +32,29 @@ button {
   justify-content: center;
 }
 
+.icon-svg {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-svg svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Icon right positioning */
+button.icon-right {
+  flex-direction: row-reverse;
+}
+
 /* Primary variant */
 :host(.primary) button {
   background-color: var(--btn-action);
   color: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 :host(.primary) button:hover {
@@ -63,12 +81,25 @@ button {
 /* Text variant */
 :host(.text) button {
   background-color: transparent;
-  color: #007bff;
-  padding: 4px 8px;
+  color: var(--text-primary);
+  padding: 4px 0 10px 0;
+  min-width: 0px;
+  text-align: left;
 }
 
 :host(.text) button:hover {
-  background-color: rgba(0, 123, 255, 0.1);
+  position: relative;
+  transform: translateY(0);
+}
+
+:host(.text) button:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background-color: #908f8f;
 }
 
 /* Common hover and active states */

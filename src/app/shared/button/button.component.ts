@@ -2,6 +2,7 @@ import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'text';
+type IconSide = 'left' | 'right';
 
 @Component({
   selector: 'app-button',
@@ -18,8 +19,9 @@ type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'text';
   }
 })
 export class ButtonComponent {
-  // Input signals
   text = input('');
   variant = input<ButtonVariant>('primary');
-  icon = input<string>(''); // Material icon name
+  icon = input<string>(''); 
+  iconSide = input<IconSide>('left');
+  isSvg = input<boolean>(false);
 }
