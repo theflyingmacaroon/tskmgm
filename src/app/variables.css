@@ -1,0 +1,11 @@
+:root {
+    --text-primary: #656565;
+
+    /* Buttons */
+    --btn-action: #007bff;
+    --btn-outline: #D9D9D9;
+
+    /* TODO: Adaptive */
+    /* Content */
+    --content-margin: 200px;
+}
