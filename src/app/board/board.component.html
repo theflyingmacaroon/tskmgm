@@ -1,22 +1,7 @@
 <div class="board">
-
-    <div class="board-content">
-        <h2>To do</h2>
-        <div class="board-column">
-        </div>
-    </div>
-    
-    <div class="board-content">
-        <h2>In progress</h2>
-        <div class="board-column">
-        </div>
-    </div>
-
-    <div class="board-content">
-        <h2>Done</h2>
-        <div class="board-column">
-        </div>
-    </div>
-
+<!--        There should be a limit of columns-->
+    @for (status of statuses ; track status.id) {
+        <app-board-column title="{{status.name}}" ></app-board-column>
+    }
 </div>
 

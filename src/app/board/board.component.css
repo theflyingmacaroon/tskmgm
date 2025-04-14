@@ -11,27 +11,13 @@ h2 {
     margin-left: var(--content-margin);
     margin-right: var(--content-margin);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
 }
 
-.board-content {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
 
-.board-content:last-child {
+.app-board-content:last-child {
     margin-right: 0;
 }
 
-.board-column {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100vw;
-    background-color: var(--board-background);
-    border-radius: 15px;
-}
 
