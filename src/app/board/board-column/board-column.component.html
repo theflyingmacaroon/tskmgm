@@ -1,0 +1,14 @@
+<div class="board-content">
+    <h2>{{ title() }}</h2>
+    <div class="board-column">
+        @for (task of tasks; track task.id) {
+            @if (task.statusId == status()){
+                <app-board-item
+                        description="{{task.description}}"
+                        user="{{task.user}}"
+                        title="{{task.title}}">
+                </app-board-item>
+            }
+        }
+    </div>
+</div>

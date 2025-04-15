@@ -11,4 +11,4 @@ export const STATUSES_MOCK = [
         id: 'done',
         name: 'Done'
     },
-    ];
+];

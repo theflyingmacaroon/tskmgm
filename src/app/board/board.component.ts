@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {BoardColumnComponent} from "./board-column/board-column.component";
-import {STATUSES_MOCK} from "./statuses.const";
+import {STATUSES_MOCK} from "./mock-data/statuses.const";
 
 @Component({
   selector: 'app-board',

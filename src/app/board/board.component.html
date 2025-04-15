@@ -1,7 +1,7 @@
 <div class="board">
 <!--        There should be a limit of columns-->
     @for (status of statuses ; track status.id) {
-        <app-board-column title="{{status.name}}" ></app-board-column>
+        <app-board-column title="{{status.name}}" status="{{status.id}}" ></app-board-column>
     }
 </div>
 
