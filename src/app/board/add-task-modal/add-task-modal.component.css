@@ -1,0 +1,12 @@
+
+.title {
+    margin-top: 20px;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+.descriptionInput {
+    height: 25vw;
+}

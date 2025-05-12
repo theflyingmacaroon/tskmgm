@@ -1,0 +1,28 @@
+<h2 class="title" mat-dialog-title>Add your task </h2>
+<mat-dialog-content>
+    <form [formGroup]="form">
+        <div class="inputs">
+            <mat-form-field class="titleInput">
+                <mat-label>Title</mat-label>
+                <input matInput
+                       id="title"
+                       type="title"
+                       name="title"
+                       formControlName="title"/>
+            </mat-form-field>
+            <mat-form-field class="descriptionInput">
+                <mat-label>Description</mat-label>
+                <input matInput
+                       id="description"
+                       type="description"
+                       name="description"
+                       formControlName="description"
+                />
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onClose()">Cancel</button>
+    <button mat-flat-button (click)="onSubmit()"> Add Task</button>
+</mat-dialog-actions>

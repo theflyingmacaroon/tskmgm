@@ -3,7 +3,7 @@
     <div class="header-buttons">
         <app-button [text]="'Filter'"  icon="filter_list" variant="outline"></app-button>
         <app-button [text]="'Sort'" icon="sort" variant="outline"></app-button>
-        <app-button [text]="'Add task'" icon="add" variant="primary"></app-button>
+        <app-button [text]="'Add task'" icon="add" variant="primary" (click)="openAddTaskModal()"></app-button>
     </div>
 </header>
 
