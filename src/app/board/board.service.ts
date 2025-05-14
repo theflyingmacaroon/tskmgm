@@ -10,7 +10,6 @@ import {MatDialog} from "@angular/material/dialog";
     providedIn: 'root',
 })
 export class BoardService {
-    readonly dialog = inject(MatDialog);
     private httpClient = inject(HttpClient);
     private tasks = signal<Task[]>([]);
 
@@ -22,9 +21,10 @@ export class BoardService {
             'http://localhost:3000/tasks', {
                 observe: 'response'
             }).pipe(
+            map((response) => response.body!),
             tap({
-                    next: ((userTasks) => this.tasks.set(userTasks))
-                })
+                next: ((userTasks) => this.tasks.set(userTasks))
+            })
         );
     }
 
@@ -45,30 +45,13 @@ export class BoardService {
     }
 
     addTask(task: Task) {
-        return this.httpClient.post<Task>('http://localhost:3000/tasks', task, {
-
-        }).subscribe()
+        return this.httpClient.post<Task>('http://localhost:3000/tasks', task)
+                   .pipe(
+                       tap((newTask) => {
+                           const tasks = this.loadedTasks();
+                           this.tasks.set([...tasks, newTask]);
+                       })
+                   ).subscribe();
     }
-
-    // === MODAL ===
-
-    openAddTaskModal(): void {
-        const dialogRef = this.dialog.open(AddTaskModalComponent, {
-            width: '500px',
-            height: '40vw',
-            panelClass: 'add-task-modal',
-        });
-
-        dialogRef.afterClosed().subscribe(result => {
-            if (result !== undefined) {
-                console.log('The dialog was closed');
-            }
-        });
-    }
-
-    closeAddTaskModal(): void {
-        this.dialog.closeAll();
-    }
-
 
 }

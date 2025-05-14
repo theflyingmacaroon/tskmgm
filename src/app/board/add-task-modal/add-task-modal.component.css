@@ -2,7 +2,8 @@
 .title {
     margin-top: 20px;
 }
-.inputs{
+
+.inputs {
     display: flex;
     flex-direction: column;
 }

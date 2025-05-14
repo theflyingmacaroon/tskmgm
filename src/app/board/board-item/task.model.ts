@@ -3,5 +3,5 @@ export interface Task{
     title: string,
     description: string,
     statusId:string
-    user:number,
+    user:string,
 }

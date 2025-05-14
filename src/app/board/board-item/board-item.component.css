@@ -13,7 +13,7 @@
 .description {
     overflow: clip;
     height: 60px;
-    width: 100%;
+    width: 80%;
 }
 
 :host {
@@ -30,6 +30,26 @@
     margin-top: 10px;
 }
 
-.user{
+.user {
     font-size: 14px;
+}
+
+.small-icon-button {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.small-icon-button .mat-icon {
+    font-size: 18px;
+    height: 18px;
+    width: 18px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
 }

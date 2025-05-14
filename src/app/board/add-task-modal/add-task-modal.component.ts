@@ -6,6 +6,7 @@ import {
 } from "@angular/material/dialog";
 import {MatFormField, MatInput, MatLabel} from "@angular/material/input";
 import {MatButton} from "@angular/material/button";
+
 import {
     FormControl,
     FormGroup,
@@ -13,6 +14,8 @@ import {
     Validators
 } from "@angular/forms";
 import {BoardService} from "../board.service";
+import {Task} from "../board-item/task.model";
+import {AddTaskModalService} from "./add-task-modal.service";
 
 @Component({
     selector: 'app-add-task-modal',
@@ -28,6 +31,7 @@ import {BoardService} from "../board.service";
         MatInput,
         ReactiveFormsModule,
     ],
+    standalone: true,
     templateUrl: './add-task-modal.component.html',
     styleUrl: './add-task-modal.component.css'
 })
@@ -42,15 +46,24 @@ export class AddTaskModalComponent {
 
     });
     private boardService = inject(BoardService);
+    private addTaskModalService = inject(AddTaskModalService);
 
     onSubmit() {
-        console.log(this.form.value);
-        this.boardService.closeAddTaskModal();
+        const task: Task = {
+            user: 'user1', // TODO : Get current user
+            statusId: 'toDo',
+            id: Math.random(),
+            title: this.form.get('title')?.value ?? '',
+            description: this.form.get('description')?.value ?? '',
+        };
+
+        this.boardService.addTask(task);
+        this.addTaskModalService.closeAddTaskModal();
     }
 
     onClose() {
         // TODO maybe save data?
-        this.boardService.closeAddTaskModal();
+        this.addTaskModalService.closeAddTaskModal();
     }
 
 }
